@@ -6,14 +6,15 @@ A wedding hall booking website built with **HTML, CSS and Bootstrap 5** (Group 4
 
 ```
 project2/
-├── index.html          Home page                 (Person 1)
-├── contact.html        Contact form + address    (Person 1)
-├── calendar.html       Available / booked days   (Person 2)
-├── booking.html        Booking form              (Person 2)
-├── my-bookings.html    My bookings               (Person 2)
-├── services.html       Services + prices         (Person 3)
-├── payment.html        Demo payment              (Person 3)
-├── invoice.html        Invoice + print           (Person 3)
+├── pages/
+│   ├── index.html          Home page                 (Person 1)
+│   ├── contact.html        Contact form + address    (Person 1)
+│   ├── calendar.html       Available / booked days   (Person 2)
+│   ├── booking.html        Booking form              (Person 2)
+│   ├── my-bookings.html    My bookings               (Person 2)
+│   ├── services.html       Services + prices         (Person 3)
+│   ├── payment.html        Demo payment              (Person 3)
+│   └── invoice.html        Invoice + print           (Person 3)
 ├── css/
 │   ├── style.css       Shared colors, fonts, buttons   (Person 1)
 │   ├── navbar.css      Navbar styling                  (Person 1)
@@ -22,6 +23,8 @@ project2/
 │   └── services.css    Services / payment styles       (Person 3)
 └── images/             Put all photos here
 ```
+
+All HTML pages live in `pages/`. From a page, link CSS as `../css/...` and images as `../images/...`; link other pages by file name only (e.g. `booking.html`).
 
 Every page already has the shared **navbar** and **footer** and links to the right CSS files.
 Pages that still need work show an "Under construction" box listing what to build. Replace it with your content.
@@ -74,8 +77,8 @@ Then on GitHub open a **Pull Request** into `main` so the team can review before
 - Always `git pull` **before** you start working.
 - Commit small and often, with clear messages.
 - Put images in `images/` with lowercase names and no spaces (e.g. `hall-1.jpg`).
-- To preview a page, just open the `.html` file in your browser (or use VS Code's Live Server).
+- To preview a page, just open the `.html` file from `pages/` in your browser (or use VS Code's Live Server).
 
 ## Publishing (Person 1, at the end)
 **Settings → Pages → Source: Deploy from a branch → `main` / root → Save.**
-The site will be at `https://vlirv.github.io/project2/`.
+The site will be at `https://vlirv.github.io/project2/pages/index.html`.
