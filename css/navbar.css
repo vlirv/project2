@@ -1,0 +1,36 @@
+/* =========================================================
+   navbar.css — navigation bar styling (Person 1)
+   ========================================================= */
+
+.site-navbar {
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.site-navbar .navbar-brand {
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.site-navbar .nav-link {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link.active {
+  color: var(--color-primary);
+}
+
+/* Icon buttons: search, favorites, support */
+.nav-icon {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  color: var(--color-accent);
+}

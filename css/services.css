@@ -1,0 +1,17 @@
+/* =========================================================
+   services.css — service cards, prices, payment, invoices (Person 3)
+   ========================================================= */
+
+/* Example class to start with — edit freely */
+.price-tag {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Hide buttons when printing the invoice */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

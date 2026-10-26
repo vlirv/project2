@@ -1,0 +1,17 @@
+/* =========================================================
+   responsive.css — mobile / tablet adjustments (Person 1)
+   ========================================================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .hall-card img {
+    height: 160px;
+  }
+
+  .site-footer {
+    text-align: center;
+  }
+}
