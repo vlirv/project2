@@ -25,6 +25,7 @@
         <a class="nav-icon" href="#" title="Search"><i class="bi bi-search"></i></a>
         <a class="nav-icon" href="#" title="Favorites"><i class="bi bi-heart"></i></a>
         <a class="nav-icon" href="contact.html" title="Support"><i class="bi bi-headset"></i></a>
+        <a class="nav-icon" href="login.html" title="Login"><i class="bi bi-person-circle"></i></a>
       </div>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mx-auto">
@@ -41,14 +42,57 @@
   <!-- ===== END NAVBAR ===== -->
 
   <main class="container py-5">
-    <h1 class="section-title">Contact Us</h1>
-    <!-- TODO (Person 1): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 1</strong>
-      <ul class="mb-0">
-      <li>Contact form (name, email, message) with validation</li>
-      <li>Hall address and map</li>
-      </ul>
+    <h1 class="section-title text-center">Contact Us</h1>
+    <div class="row g-4">
+      <!-- Contact form -->
+      <div class="col-lg-7">
+        <div class="card hall-card p-4">
+          <h4 class="mb-3">Send us a message</h4>
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Full name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9+ ]{7,15}" placeholder="+000 000 0000">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <select class="form-select" id="subject" name="subject" required>
+                <option value="">Choose...</option>
+                <option>Booking question</option>
+                <option>Services &amp; prices</option>
+                <option>Technical support</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" minlength="10" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-main">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Hall address -->
+      <div class="col-lg-5">
+        <div class="card hall-card p-4 h-100">
+          <h4 class="mb-3">Hall address</h4>
+          <p><i class="bi bi-geo-alt-fill text-warning"></i> Main Street, City Center</p>
+          <p><i class="bi bi-telephone-fill text-warning"></i> +000 000 0000</p>
+          <p><i class="bi bi-envelope-fill text-warning"></i> info@royalhall.com</p>
+          <p><i class="bi bi-clock-fill text-warning"></i> Every day, 10:00 AM &ndash; 10:00 PM</p>
+          <img src="../images/placeholder.svg" class="img-fluid rounded mt-2" alt="Hall location">
+        </div>
+      </div>
     </div>
   </main>
 
@@ -65,6 +109,11 @@
           <a href="services.html">Services</a> &middot;
           <a href="booking.html">Book Now</a> &middot;
           <a href="contact.html">Contact</a>
+          <br>
+          <a href="login.html">Login</a> &middot;
+          <a href="register.html">Register</a> &middot;
+          <a href="admin.html">Admin</a> &middot;
+          <a href="supervisor.html">Supervisor</a>
         </div>
         <div class="col-md-4 mb-3">
           <h5>Contact</h5>

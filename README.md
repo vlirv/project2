@@ -1,6 +1,6 @@
 # Wedding Hall Booking Website — موقع حجز القاعة
 
-A wedding hall booking website built with **HTML, CSS and Bootstrap 5** (Group 4 – Event Management System).
+A wedding hall booking website built with **HTML, CSS and Bootstrap 5** (Group 4 – Event Management System). Team of 4.
 
 ## Folder structure
 
@@ -14,13 +14,18 @@ project2/
 │   ├── my-bookings.html    My bookings               (Person 2)
 │   ├── services.html       Services + prices         (Person 3)
 │   ├── payment.html        Demo payment              (Person 3)
-│   └── invoice.html        Invoice + print           (Person 3)
+│   ├── invoice.html        Invoice + print           (Person 3)
+│   ├── login.html          Login                     (Person 4)
+│   ├── register.html       Create account            (Person 4)
+│   ├── admin.html          Admin dashboard           (Person 4)
+│   └── supervisor.html     Supervisor dashboard      (Person 4)
 ├── css/
 │   ├── style.css       Shared colors, fonts, buttons   (Person 1)
 │   ├── navbar.css      Navbar styling                  (Person 1)
 │   ├── responsive.css  Mobile / desktop                (Person 1)
 │   ├── booking.css     Booking styles                  (Person 2)
-│   └── services.css    Services / payment styles       (Person 3)
+│   ├── services.css    Services / payment styles       (Person 3)
+│   └── auth.css        Login / register / dashboards   (Person 4)
 └── images/             Put all photos here
 ```
 
@@ -35,7 +40,8 @@ Pages that still need work show an "Under construction" box listing what to buil
 |---|---|---|
 | **Person 1** – Foundation & Home | Repo, shared CSS, navbar/footer, home, contact, responsive, publishing on GitHub Pages | `index.html`, `contact.html`, `style.css`, `navbar.css`, `responsive.css` |
 | **Person 2** – Booking & Scheduling | Calendar, booking form + validation, my bookings, Edit/Cancel buttons (design only) | `calendar.html`, `booking.html`, `my-bookings.html`, `booking.css` |
-| **Person 3** – Services, Pricing & Payment | Service cards, selection options, payment demo, invoice + print button | `services.html`, `payment.html`, `invoice.html`, `services.css` |
+| **Person 3** – Services, Pricing & Payment | Service cards, selection options, payment demo, static total/deposit/remaining example, invoice + print button, responsive services/payment/invoice | `services.html`, `payment.html`, `invoice.html`, `services.css` |
+| **Person 4** – Users & Administration | Login, register, Admin dashboard (bookings table, Accept/Reject/Schedule buttons — design only), Supervisor dashboard (upcoming events), Admin/Supervisor/Guest views, confirmation messages & alerts, consistency with shared CSS | `login.html`, `register.html`, `admin.html`, `supervisor.html`, `auth.css` |
 
 **Rule:** edit only your own files. If you need to change a shared file (`style.css`, `navbar.css`, navbar or footer HTML), tell the team first.
 
