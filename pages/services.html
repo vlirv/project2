@@ -30,8 +30,8 @@
       </div>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
           <li class="nav-item"><a class="nav-link" href="booking.html">Book Now</a></li>
           <li class="nav-item"><a class="nav-link" href="my-bookings.html">My Bookings</a></li>
@@ -40,20 +40,54 @@
       </div>
     </div>
   </nav>
-  <!-- ===== END NAVBAR ===== -->
+  <!-- ===== END NAVBAR ===== -->  <main class="container py-5">
+    <section class="services-hero text-center mb-5">
+      <span class="eyebrow"><i class="bi bi-stars"></i> MAKE IT UNFORGETTABLE</span>
+      <h1 class="section-title mt-2">Our Wedding Services</h1>
+      <p class="lead mx-auto">Choose the details that make your celebration uniquely yours.</p>
+    </section>
 
-  <main class="container py-5">
-    <h1 class="section-title">Our Services</h1>
-    <!-- TODO (Person 3): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 3</strong>
-      <ul class="mb-0">
-      <li>Service cards: decoration, catering, music bands (image + price)</li>
-      <li>Service selection options</li>
-      </ul>
-    </div>
+    <form id="servicesForm">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="card service-card h-100">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80" class="service-image" alt="Elegant wedding table decoration">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h2 class="h5">Wedding Decoration</h2><span class="price-tag">1,200 LYD</span></div>
+              <p class="text-muted">Floral arrangements, table styling, and a beautiful ceremony backdrop.</p>
+              <label class="service-select mt-auto"><input class="form-check-input service-option" type="checkbox" value="1200" data-name="Wedding Decoration"> <span>Select decoration</span></label>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="card service-card h-100">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=80" class="service-image" alt="Catering buffet prepared for guests">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h2 class="h5">Catering Package</h2><span class="price-tag">2,000 LYD</span></div>
+              <p class="text-muted">A welcoming buffet and refreshments for your wedding guests.</p>
+              <label class="service-select mt-auto"><input class="form-check-input service-option" type="checkbox" value="2000" data-name="Catering Package"> <span>Select catering</span></label>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="card service-card h-100">
+            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80" class="service-image" alt="Live music and entertainment">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start gap-2"><h2 class="h5">Music Band</h2><span class="price-tag">900 LYD</span></div>
+              <p class="text-muted">Live music and entertainment to keep the celebration going.</p>
+              <label class="service-select mt-auto"><input class="form-check-input service-option" type="checkbox" value="900" data-name="Music Band"> <span>Select music</span></label>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="selection-summary mt-4">
+        <div><span class="text-muted">Selected services</span><h3 class="h5 mb-0" id="selectedCount">0 services</h3></div>
+        <div><span class="text-muted">Estimated total</span><div class="total-price" id="servicesTotal">0 LYD</div></div>
+        <button class="btn btn-main" type="submit">Continue to payment <i class="bi bi-arrow-right"></i></button>
+      </div>
+      <p id="servicesMessage" class="form-feedback mt-3" role="status"></p>
+    </form>
   </main>
-
   <!-- ===== FOOTER (shared — same on every page, owned by Person 1) ===== -->
   <footer class="site-footer">
     <div class="container">
@@ -82,7 +116,27 @@
     </div>
   </footer>
   <!-- ===== END FOOTER ===== -->
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+const serviceOptions = [...document.querySelectorAll(".service-option")];
+const money = n => `${Number(n).toLocaleString("en-US")} LYD`;
+function refreshServices() {
+  const chosen = serviceOptions.filter(x => x.checked);
+  const total = chosen.reduce((sum, x) => sum + Number(x.value), 0);
+  document.getElementById("selectedCount").textContent = `${chosen.length} service${chosen.length === 1 ? "" : "s"}`;
+  document.getElementById("servicesTotal").textContent = money(total);
+}
+serviceOptions.forEach(option => option.addEventListener("change", refreshServices));
+document.getElementById("servicesForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const chosen = serviceOptions.filter(x => x.checked).map(x => ({name:x.dataset.name, price:Number(x.value)}));
+  if (!chosen.length) {
+    document.getElementById("servicesMessage").textContent = "Please select at least one service before continuing.";
+    return;
+  }
+  localStorage.setItem("royalHallServices", JSON.stringify(chosen));
+  window.location.href = "payment.html";
+});
+</script>
 </body>
 </html>
