@@ -1,0 +1,21 @@
+/* =========================================================
+   auth.css — login, registration and dashboard pages (Person 4)
+   ========================================================= */
+
+/* Example classes to start with — edit freely */
+.auth-card {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.status-pending {
+  color: #b26a00;
+}
+
+.status-accepted {
+  color: var(--color-available);
+}
+
+.status-rejected {
+  color: var(--color-booked);
+}

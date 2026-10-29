@@ -1,0 +1,14 @@
+/* =========================================================
+   booking.css — booking form, calendar, appointment cards (Person 2)
+   ========================================================= */
+
+/* Example classes to start with — edit freely */
+.day-available {
+  background-color: var(--color-available);
+  color: #fff;
+}
+
+.day-booked {
+  background-color: var(--color-booked);
+  color: #fff;
+}
