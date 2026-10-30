@@ -43,14 +43,58 @@
   <!-- ===== END NAVBAR ===== -->
 
   <main class="container py-5">
-    <h1 class="section-title">Login</h1>
-    <!-- TODO (Person 4): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 4</strong>
-      <ul class="mb-0">
-      <li>Login form (email, password) with validation</li>
-      <li>Link to register.html</li>
-      </ul>
+
+    <div class="auth-wrapper">
+      <aside class="auth-side">
+        <span class="eyebrow text-white-50">WELCOME BACK</span>
+        <h2 class="mt-2">Royal Hall</h2>
+        <p class="mb-0">Log in to manage your bookings, follow your events and get your invoices.</p>
+        <ul>
+          <li><i class="bi bi-calendar-check"></i> Track your hall bookings</li>
+          <li><i class="bi bi-receipt"></i> View payments and invoices</li>
+          <li><i class="bi bi-bell"></i> Get booking confirmations</li>
+        </ul>
+      </aside>
+
+      <div class="auth-form">
+        <h1 class="section-title h2 mb-1">Login</h1>
+        <p class="text-muted mb-4">Choose your account type and sign in.</p>
+
+        <!-- Validation uses HTML attributes only -->
+        <form action="my-bookings.html" method="get">
+          <p class="form-label mb-2">Log in as</p>
+            <div class="role-picker mb-3">
+              <label class="role-option"><input type="radio" name="role" value="guest" checked><span><i class="bi bi-person"></i>Guest</span></label>
+              <label class="role-option"><input type="radio" name="role" value="admin"><span><i class="bi bi-shield-lock"></i>Admin</span></label>
+              <label class="role-option"><input type="radio" name="role" value="supervisor"><span><i class="bi bi-clipboard-check"></i>Supervisor</span></label>
+            </div>
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email *</label>
+            <input type="email" class="form-control" id="loginEmail" name="email" placeholder="name@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password *</label>
+            <input type="password" class="form-control" id="loginPassword" name="password" placeholder="At least 8 characters" minlength="8" required>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember" name="remember">
+              <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+            <a href="contact.html" class="small">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-main w-100"><i class="bi bi-box-arrow-in-right"></i> Log in</button>
+        </form>
+
+        <p class="text-center mt-3 mb-3">No account yet? <a href="register.html">Create one</a></p>
+
+        <div class="demo-links">
+          <strong><i class="bi bi-info-circle"></i> Demo:</strong> open each role's interface directly &mdash;
+          <a href="my-bookings.html">Guest</a> &middot;
+          <a href="admin.html">Admin</a> &middot;
+          <a href="supervisor.html">Supervisor</a>
+        </div>
+      </div>
     </div>
   </main>
 

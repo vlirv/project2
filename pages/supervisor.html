@@ -43,14 +43,100 @@
   <!-- ===== END NAVBAR ===== -->
 
   <main class="container py-5">
-    <h1 class="section-title">Supervisor Dashboard</h1>
-    <!-- TODO (Person 4): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 4</strong>
-      <ul class="mb-0">
-      <li>Upcoming events list / table</li>
-      <li>Alerts and notifications (HTML + CSS)</li>
-      </ul>
+
+    <div class="dash-header">
+      <div>
+        <span class="role-badge"><i class="bi bi-clipboard-check"></i> Supervisor</span>
+        <h1 class="section-title mt-2 mb-0">Supervisor Dashboard</h1>
+      </div>
+      <a href="login.html" class="btn btn-outline-main"><i class="bi bi-box-arrow-right"></i> Log out</a>
+    </div>
+
+    <!-- Alerts (design examples) -->
+    <div class="alert alert-info site-alert alert-dismissible fade show" role="alert">
+      <i class="bi bi-bell-fill"></i> <strong>Event today:</strong> Wedding in the Grand Hall starts at 6:00 PM. Doors open at 5:30 PM.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-danger site-alert alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-octagon-fill"></i> <strong>Reminder:</strong> the music band for 8 Nov has not confirmed yet.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3"><div class="dash-stat"><span class="icon icon-brown"><i class="bi bi-calendar-heart"></i></span><div><strong>1</strong><small>Event today</small></div></div></div>
+      <div class="col-6 col-lg-3"><div class="dash-stat"><span class="icon icon-green"><i class="bi bi-calendar-week"></i></span><div><strong>4</strong><small>Next 30 days</small></div></div></div>
+      <div class="col-6 col-lg-3"><div class="dash-stat"><span class="icon icon-yellow"><i class="bi bi-people"></i></span><div><strong>1,270</strong><small>Expected guests</small></div></div></div>
+      <div class="col-6 col-lg-3"><div class="dash-stat"><span class="icon icon-red"><i class="bi bi-exclamation-circle"></i></span><div><strong>1</strong><small>Open issue</small></div></div></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <section class="auth-panel h-100">
+          <h2 class="h5 mb-3">Upcoming events</h2>
+          <ul class="event-timeline">
+          <li class="event-item is-today">
+            <div class="event-date"><span class="day">30</span><span class="month">Oct</span></div>
+            <div class="event-body">
+              <h3 class="h6 mb-1">Wedding &mdash; Grand Hall <span class="status-pill status-scheduled ms-1">Today</span></h3>
+              <p class="small text-muted mb-2"><i class="bi bi-person"></i> Mona &amp; Khaled &middot; <i class="bi bi-clock"></i> Evening, 6 &ndash; 11 PM &middot; <i class="bi bi-people"></i> 350 guests</p>
+              <p class="small mb-0"><strong>Services:</strong> Decoration, Catering, Music band</p>
+            </div>
+          </li>
+          <li class="event-item">
+            <div class="event-date"><span class="day">08</span><span class="month">Nov</span></div>
+            <div class="event-body">
+              <h3 class="h6 mb-1">Wedding &mdash; Grand Hall</h3>
+              <p class="small text-muted mb-2"><i class="bi bi-person"></i> Sara Mohamed &middot; <i class="bi bi-clock"></i> Evening, 6 &ndash; 11 PM &middot; <i class="bi bi-people"></i> 400 guests</p>
+              <p class="small mb-0"><strong>Services:</strong> Decoration, Catering</p>
+            </div>
+          </li>
+          <li class="event-item">
+            <div class="event-date"><span class="day">14</span><span class="month">Nov</span></div>
+            <div class="event-body">
+              <h3 class="h6 mb-1">Wedding &mdash; Grand Hall</h3>
+              <p class="small text-muted mb-2"><i class="bi bi-person"></i> Ahmed Ali &middot; <i class="bi bi-clock"></i> Evening, 6 &ndash; 11 PM &middot; <i class="bi bi-people"></i> 300 guests</p>
+              <p class="small mb-0"><strong>Services:</strong> Decoration, Catering</p>
+            </div>
+          </li>
+          <li class="event-item">
+            <div class="event-date"><span class="day">21</span><span class="month">Nov</span></div>
+            <div class="event-body">
+              <h3 class="h6 mb-1">Engagement &mdash; Garden Hall</h3>
+              <p class="small text-muted mb-2"><i class="bi bi-person"></i> Fatima Salem &middot; <i class="bi bi-clock"></i> Morning, 10 AM &ndash; 3 PM &middot; <i class="bi bi-people"></i> 220 guests</p>
+              <p class="small mb-0"><strong>Services:</strong> Catering, Music band</p>
+            </div>
+          </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="col-lg-5">
+        <section class="auth-panel mb-4">
+          <h2 class="h5 mb-1">Today's checklist</h2>
+          <p class="small text-muted mb-3">Wedding &mdash; Grand Hall, 30 Oct</p>
+          <ul class="checklist">
+            <li><input type="checkbox" id="c1" checked><label for="c1">Hall cleaned and ready</label></li>
+            <li><input type="checkbox" id="c2" checked><label for="c2">Decoration set up</label></li>
+            <li><input type="checkbox" id="c3"><label for="c3">Sound system tested</label></li>
+            <li><input type="checkbox" id="c4"><label for="c4">Catering arrived</label></li>
+            <li><input type="checkbox" id="c5"><label for="c5">Remaining balance collected</label></li>
+          </ul>
+        </section>
+
+        <section class="auth-panel">
+          <h2 class="h5 mb-3">Team on duty</h2>
+          <div class="table-responsive">
+            <table class="table dash-table mb-0">
+              <thead><tr><th>Name</th><th>Role</th><th>Phone</th></tr></thead>
+              <tbody>
+                <tr><td>Ali Hassan</td><td>Decoration</td><td>091 111 2222</td></tr>
+                <tr><td>Huda Omar</td><td>Catering</td><td>092 333 4444</td></tr>
+                <tr><td>Samir Adel</td><td>Sound &amp; music</td><td>094 555 6666</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </div>
   </main>
 

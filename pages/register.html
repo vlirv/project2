@@ -43,14 +43,69 @@
   <!-- ===== END NAVBAR ===== -->
 
   <main class="container py-5">
-    <h1 class="section-title">Create Account</h1>
-    <!-- TODO (Person 4): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 4</strong>
-      <ul class="mb-0">
-      <li>Sign-up form (name, email, phone, password)</li>
-      <li>Role views: Admin / Supervisor / Guest</li>
-      </ul>
+
+    <div class="auth-wrapper">
+      <aside class="auth-side">
+        <span class="eyebrow text-white-50">JOIN US</span>
+        <h2 class="mt-2">Create your account</h2>
+        <p class="mb-0">One account for booking halls, choosing services and following your event.</p>
+        <ul>
+          <li><i class="bi bi-person"></i> <strong>Guest:</strong> book halls and services</li>
+          <li><i class="bi bi-shield-lock"></i> <strong>Admin:</strong> accept, reject and schedule bookings</li>
+          <li><i class="bi bi-clipboard-check"></i> <strong>Supervisor:</strong> follow upcoming events</li>
+        </ul>
+      </aside>
+
+      <div class="auth-form">
+        <h1 class="section-title h2 mb-1">Register</h1>
+        <p class="text-muted mb-4">Fill in your details to create an account.</p>
+
+        <!-- Validation uses HTML attributes only -->
+        <form action="login.html" method="get">
+          <p class="form-label mb-2">Account type</p>
+            <div class="role-picker mb-3">
+              <label class="role-option"><input type="radio" name="role" value="guest" checked><span><i class="bi bi-person"></i>Guest</span></label>
+              <label class="role-option"><input type="radio" name="role" value="admin"><span><i class="bi bi-shield-lock"></i>Admin</span></label>
+              <label class="role-option"><input type="radio" name="role" value="supervisor"><span><i class="bi bi-clipboard-check"></i>Supervisor</span></label>
+            </div>
+          <p class="small text-muted mt-n2 mb-3"><i class="bi bi-info-circle"></i> Admin and Supervisor accounts must be approved by the hall manager.</p>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="regFirst" class="form-label">First name *</label>
+              <input type="text" class="form-control" id="regFirst" name="firstName" placeholder="Ahmed" minlength="2" required>
+            </div>
+            <div class="col-md-6">
+              <label for="regLast" class="form-label">Last name *</label>
+              <input type="text" class="form-control" id="regLast" name="lastName" placeholder="Ali" minlength="2" required>
+            </div>
+            <div class="col-12">
+              <label for="regEmail" class="form-label">Email *</label>
+              <input type="email" class="form-control" id="regEmail" name="email" placeholder="name@example.com" required>
+            </div>
+            <div class="col-12">
+              <label for="regPhone" class="form-label">Phone *</label>
+              <input type="tel" class="form-control" id="regPhone" name="phone" placeholder="09X XXX XXXX" pattern="[0-9+ ]{9,15}" title="9 to 15 digits" required>
+            </div>
+            <div class="col-md-6">
+              <label for="regPassword" class="form-label">Password *</label>
+              <input type="password" class="form-control" id="regPassword" name="password" placeholder="At least 8 characters" minlength="8" required>
+            </div>
+            <div class="col-md-6">
+              <label for="regConfirm" class="form-label">Confirm password *</label>
+              <input type="password" class="form-control" id="regConfirm" name="confirm" placeholder="Repeat password" minlength="8" required>
+            </div>
+          </div>
+
+          <div class="form-check mt-3 mb-4">
+            <input class="form-check-input" type="checkbox" id="regTerms" name="terms" required>
+            <label class="form-check-label" for="regTerms">I agree to the terms and privacy policy *</label>
+          </div>
+          <button type="submit" class="btn btn-main w-100"><i class="bi bi-person-plus"></i> Create account</button>
+        </form>
+
+        <p class="text-center mt-3 mb-0">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
     </div>
   </main>
 
