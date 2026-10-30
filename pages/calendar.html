@@ -43,14 +43,97 @@
   <!-- ===== END NAVBAR ===== -->
 
   <main class="container py-5">
-    <h1 class="section-title">Availability Calendar</h1>
-    <!-- TODO (Person 2): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 2</strong>
-      <ul class="mb-0">
-      <li>Calendar of available and booked days (HTML + CSS)</li>
-      <li>Use .day-available / .day-booked from booking.css</li>
-      </ul>
+
+    <section class="booking-hero text-center mb-4">
+      <span class="eyebrow"><i class="bi bi-calendar-heart"></i> PLAN YOUR DAY</span>
+      <h1 class="section-title mt-2">Availability Calendar</h1>
+      <p class="lead mx-auto">See which days are free, then pick a date to start your booking.</p>
+    </section>
+
+    <div class="row g-4">
+      <!-- Month view -->
+      <div class="col-lg-8">
+        <section class="booking-panel">
+          <div class="calendar-header">
+            <span class="calendar-nav" title="Previous month"><i class="bi bi-chevron-left"></i></span>
+            <h2 class="h4">November 2026</h2>
+            <span class="calendar-nav" title="Next month"><i class="bi bi-chevron-right"></i></span>
+          </div>
+
+          <div class="calendar-grid">
+          <div class="calendar-weekday">Sun</div>
+          <div class="calendar-weekday">Mon</div>
+          <div class="calendar-weekday">Tue</div>
+          <div class="calendar-weekday">Wed</div>
+          <div class="calendar-weekday">Thu</div>
+          <div class="calendar-weekday">Fri</div>
+          <div class="calendar-weekday">Sat</div>
+          <a class="calendar-day day-available" href="booking.html" title="Available">1<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">2<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">3<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">4<small>Available</small></a>
+          <a class="calendar-day day-partial" href="booking.html" title="One slot left">5<small>1 slot left</small></a>
+          <div class="calendar-day day-booked" title="Fully booked">6<small>Booked</small></div>
+          <div class="calendar-day day-booked" title="Fully booked">7<small>Booked</small></div>
+          <a class="calendar-day day-available" href="booking.html" title="Available">8<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">9<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">10<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">11<small>Available</small></a>
+          <a class="calendar-day day-partial" href="booking.html" title="One slot left">12<small>1 slot left</small></a>
+          <div class="calendar-day day-booked" title="Fully booked">13<small>Booked</small></div>
+          <div class="calendar-day day-booked" title="Fully booked">14<small>Booked</small></div>
+          <a class="calendar-day day-available" href="booking.html" title="Available">15<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">16<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">17<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">18<small>Available</small></a>
+          <a class="calendar-day day-partial" href="booking.html" title="One slot left">19<small>1 slot left</small></a>
+          <div class="calendar-day day-booked" title="Fully booked">20<small>Booked</small></div>
+          <div class="calendar-day day-booked" title="Fully booked">21<small>Booked</small></div>
+          <a class="calendar-day day-partial" href="booking.html" title="One slot left">22<small>1 slot left</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">23<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">24<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">25<small>Available</small></a>
+          <a class="calendar-day day-partial" href="booking.html" title="One slot left">26<small>1 slot left</small></a>
+          <div class="calendar-day day-booked" title="Fully booked">27<small>Booked</small></div>
+          <div class="calendar-day day-booked" title="Fully booked">28<small>Booked</small></div>
+          <a class="calendar-day day-available" href="booking.html" title="Available">29<small>Available</small></a>
+          <a class="calendar-day day-available" href="booking.html" title="Available">30<small>Available</small></a>
+          </div>
+
+          <div class="calendar-legend">
+            <span><span class="legend-swatch day-available"></span>Available</span>
+            <span><span class="legend-swatch day-partial"></span>1 slot left</span>
+            <span><span class="legend-swatch day-booked"></span>Fully booked</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- Example day: time slots -->
+      <div class="col-lg-4">
+        <section class="booking-panel mb-4">
+          <h2 class="h5 mb-1">Thursday, 5 November</h2>
+          <p class="text-muted small mb-3">Example of a day's time slots</p>
+          <div class="slot-list">
+            <div class="slot day-available">
+              <span><i class="bi bi-sun"></i> Morning<br><small class="fw-normal">10:00 AM &ndash; 3:00 PM</small></span>
+              <span class="badge bg-success">Available</span>
+            </div>
+            <div class="slot day-booked">
+              <span><i class="bi bi-moon-stars"></i> Evening<br><small class="fw-normal">6:00 PM &ndash; 11:00 PM</small></span>
+              <span class="badge bg-danger">Booked</span>
+            </div>
+          </div>
+          <a href="booking.html" class="btn btn-main w-100 mt-3">Book this date</a>
+        </section>
+
+        <section class="booking-panel">
+          <h2 class="h5 mb-3">This month</h2>
+          <div class="summary-row"><span>Available days</span><strong class="text-success">17</strong></div>
+          <div class="summary-row"><span>Partly booked</span><strong style="color:#8a6200">5</strong></div>
+          <div class="summary-row border-0"><span>Fully booked</span><strong class="text-danger">8</strong></div>
+          <p class="small text-muted mt-3 mb-0"><i class="bi bi-info-circle"></i> Weekends fill up fast &mdash; book early!</p>
+        </section>
+      </div>
     </div>
   </main>
 

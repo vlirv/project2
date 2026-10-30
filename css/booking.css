@@ -1,14 +1,400 @@
 /* =========================================================
    booking.css — booking form, calendar, appointment cards (Person 2)
+   Uses the shared colors from style.css.
    ========================================================= */
 
-/* Example classes to start with — edit freely */
+/* ---------- Appointment states (shared by calendar + cards) ---------- */
+:root {
+  --color-partial: #e0a100;
+  --color-available-bg: #e8f5e9;
+  --color-booked-bg: #fdecea;
+  --color-partial-bg: #fff6dc;
+}
+
 .day-available {
-  background-color: var(--color-available);
-  color: #fff;
+  background-color: var(--color-available-bg);
+  color: var(--color-available);
+  border-color: #b9dfbb;
 }
 
 .day-booked {
-  background-color: var(--color-booked);
+  background-color: var(--color-booked-bg);
+  color: var(--color-booked);
+  border-color: #f2c1bd;
+}
+
+.day-partial {
+  background-color: var(--color-partial-bg);
+  color: #8a6200;
+  border-color: #f0d68a;
+}
+
+.day-past {
+  background-color: #f2f2f2;
+  color: #b5b5b5;
+  border-color: #e6e6e6;
+}
+
+/* ---------- Page header ---------- */
+.eyebrow {
+  display: inline-block;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.booking-hero .lead {
+  max-width: 620px;
+  color: var(--color-muted);
+}
+
+.booking-panel {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1.1rem, 3vw, 2rem);
+}
+
+/* ---------- Calendar ---------- */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.calendar-nav {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #eadfd5;
+  background: #fff;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  padding-bottom: 0.25rem;
+}
+
+.calendar-day {
+  min-height: 78px;
+  border: 1px solid #eadfd5;
+  border-radius: 10px;
+  padding: 0.4rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.calendar-day small {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.calendar-day.empty {
+  border: none;
+  background: transparent;
+}
+
+.calendar-day.today {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+a.calendar-day {
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.calendar-day:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Legend */
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid;
+  vertical-align: -3px;
+  margin-right: 0.35rem;
+}
+
+/* Time slots */
+.slot-list {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+}
+
+.slot .badge {
+  font-weight: 700;
+}
+
+/* ---------- Booking form ---------- */
+.form-step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-primary);
+  font-weight: 800;
+  margin: 1.5rem 0 1rem;
+}
+
+.form-step:first-child {
+  margin-top: 0;
+}
+
+.form-step span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-primary);
   color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.booking-panel .form-control:focus,
+.booking-panel .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(139, 94, 60, 0.15);
+}
+
+/* Shows a red border only after the user has typed something invalid */
+.booking-panel .form-control[placeholder]:not(:placeholder-shown):invalid {
+  border-color: var(--color-booked);
+}
+
+.booking-panel .form-control[placeholder]:not(:placeholder-shown):valid {
+  border-color: var(--color-available);
+}
+
+.slot-option {
+  display: block;
+  cursor: pointer;
+}
+
+.slot-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.slot-option .slot-card {
+  border: 1px solid #eadfd5;
+  border-radius: 10px;
+  padding: 0.8rem;
+  text-align: center;
+  height: 100%;
+}
+
+.slot-option .slot-card i {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.slot-option input:checked + .slot-card {
+  border-color: var(--color-primary);
+  background: #fbf2e9;
+  box-shadow: 0 0 0 2px var(--color-primary) inset;
+}
+
+.slot-option input:focus-visible + .slot-card {
+  outline: 2px solid var(--color-accent);
+}
+
+.slot-option.disabled {
+  cursor: not-allowed;
+}
+
+.slot-option.disabled .slot-card {
+  background: var(--color-booked-bg);
+  color: var(--color-booked);
+  opacity: 0.8;
+}
+
+.booking-summary {
+  position: sticky;
+  top: 90px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #eadfd5;
+}
+
+/* ---------- My bookings: appointment cards ---------- */
+.appointment-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border-left: 6px solid var(--color-primary);
+}
+
+.appointment-card.status-confirmed {
+  border-left-color: var(--color-available);
+}
+
+.appointment-card.status-pending {
+  border-left-color: var(--color-partial);
+}
+
+.appointment-card.status-cancelled {
+  border-left-color: var(--color-booked);
+  opacity: 0.75;
+}
+
+.appointment-date {
+  background: #fbf2e9;
+  color: var(--color-primary);
+  border-radius: 10px;
+  text-align: center;
+  padding: 0.6rem 0.9rem;
+  min-width: 78px;
+}
+
+.appointment-date .day {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.appointment-date .month {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.appointment-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.appointment-details span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.status-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.7rem;
+  border-radius: 20px;
+}
+
+.status-badge.confirmed {
+  background: var(--color-available-bg);
+  color: var(--color-available);
+}
+
+.status-badge.pending {
+  background: var(--color-partial-bg);
+  color: #8a6200;
+}
+
+.status-badge.cancelled {
+  background: var(--color-booked-bg);
+  color: var(--color-booked);
+}
+
+.btn-cancel {
+  border: 2px solid var(--color-booked);
+  color: var(--color-booked);
+  border-radius: var(--radius);
+}
+
+.btn-cancel:hover {
+  background: var(--color-booked);
+  color: #fff;
+}
+
+.booking-stats .stat {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+}
+
+.booking-stats .stat strong {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 575px) {
+  .calendar-grid {
+    gap: 0.25rem;
+  }
+
+  .calendar-day {
+    min-height: 52px;
+    padding: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .calendar-day small {
+    display: none;
+  }
+
+  .calendar-weekday {
+    font-size: 0.7rem;
+  }
+
+  .appointment-actions .btn {
+    flex: 1;
+  }
 }
