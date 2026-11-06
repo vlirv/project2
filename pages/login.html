@@ -146,9 +146,11 @@
         alert("Wrong email, password or account type. If you don't have an account, please register first.");
         return;
       }
+      localStorage.setItem("currentUser", JSON.stringify({ email: user.email, role: user.role }));
       const pages = { guest: "my-bookings.html", admin: "admin.html", supervisor: "supervisor.html" };
       window.location.href = pages[role];
     });
   </script>
+  <script src="../js/auth.js"></script>
 </body>
 </html>
