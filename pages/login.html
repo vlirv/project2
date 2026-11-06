@@ -132,5 +132,23 @@
   <!-- ===== END FOOTER ===== -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Demo only: checks the accounts saved by register.html in this browser
+    document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const password = document.getElementById("loginPassword").value;
+      const role = document.querySelector('input[name="role"]:checked').value;
+      let users = [];
+      try { users = JSON.parse(localStorage.getItem("users") || "[]"); } catch (err) { users = []; }
+      const user = users.find(u => u.email === email && u.password === password && u.role === role);
+      if (!user) {
+        alert("Wrong email, password or account type. If you don't have an account, please register first.");
+        return;
+      }
+      const pages = { guest: "my-bookings.html", admin: "admin.html", supervisor: "supervisor.html" };
+      window.location.href = pages[role];
+    });
+  </script>
 </body>
 </html>
