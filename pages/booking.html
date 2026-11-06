@@ -43,14 +43,114 @@
   <!-- ===== END NAVBAR ===== -->
 
   <main class="container py-5">
-    <h1 class="section-title">Book Your Hall</h1>
-    <!-- TODO (Person 2): replace this block with the real page content -->
-    <div class="alert alert-warning">
-      <strong>Under construction &mdash; Person 2</strong>
-      <ul class="mb-0">
-      <li>Booking form: name, phone, date, time slot, number of guests</li>
-      <li>Validation: required, type="date", type="tel"</li>
-      </ul>
+
+    <section class="booking-hero text-center mb-4">
+      <span class="eyebrow"><i class="bi bi-pencil-square"></i> RESERVE YOUR HALL</span>
+      <h1 class="section-title mt-2">Book Your Hall</h1>
+      <p class="lead mx-auto">Fill in your details and we will confirm your booking within 24 hours.</p>
+    </section>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <!-- Validation uses HTML attributes only: required, type, pattern, min, max -->
+        <form class="booking-panel" action="my-bookings.html" method="get">
+
+          <h2 class="form-step h6"><span>1</span> Your details</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="fullName" class="form-label">Full name *</label>
+              <input type="text" class="form-control" id="fullName" name="fullName" placeholder="e.g. Ahmed Ali" minlength="3" required>
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone number *</label>
+              <input type="tel" class="form-control" id="phone" name="phone" placeholder="09X XXX XXXX" pattern="[0-9+ ]{9,15}" title="9 to 15 digits" required>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Email (optional)</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            </div>
+          </div>
+
+          <h2 class="form-step h6"><span>2</span> Event details</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="hall" class="form-label">Hall *</label>
+              <select class="form-select" id="hall" name="hall" required>
+                <option value="">Choose a hall...</option>
+                <option>Hall 1 &mdash; Grand Hall (500 guests)</option>
+                <option>Hall 2 &mdash; Garden Hall (300 guests)</option>
+                <option>Hall 3 &mdash; Crystal Hall (200 guests)</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="eventType" class="form-label">Event type *</label>
+              <select class="form-select" id="eventType" name="eventType" required>
+                <option value="">Choose...</option>
+                <option>Wedding</option>
+                <option>Engagement</option>
+                <option>Henna night</option>
+                <option>Other celebration</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="date" class="form-label">Date *</label>
+              <input type="date" class="form-control" id="date" name="date" min="2026-11-01" max="2027-12-31" required>
+              <div class="form-text"><a href="calendar.html">Check available days</a></div>
+            </div>
+            <div class="col-md-6">
+              <label for="guests" class="form-label">Number of guests *</label>
+              <input type="number" class="form-control" id="guests" name="guests" placeholder="50 &ndash; 500" min="50" max="500" step="10" required>
+            </div>
+          </div>
+
+          <p class="form-label mt-3 mb-2">Time slot *</p>
+          <div class="row g-3">
+            <div class="col-sm-4">
+              <label class="slot-option">
+                <input type="radio" name="slot" value="morning" required>
+                <span class="slot-card d-block"><i class="bi bi-sun"></i><br><strong>Morning</strong><br><small>10 AM &ndash; 3 PM</small></span>
+              </label>
+            </div>
+            <div class="col-sm-4">
+              <label class="slot-option">
+                <input type="radio" name="slot" value="evening">
+                <span class="slot-card d-block"><i class="bi bi-moon-stars"></i><br><strong>Evening</strong><br><small>6 PM &ndash; 11 PM</small></span>
+              </label>
+            </div>
+            <div class="col-sm-4">
+              <label class="slot-option disabled" title="Example of a booked slot">
+                <input type="radio" name="slot" value="full-day" disabled>
+                <span class="slot-card d-block"><i class="bi bi-x-circle"></i><br><strong>Full day</strong><br><small>Booked</small></span>
+              </label>
+            </div>
+          </div>
+
+          <h2 class="form-step h6"><span>3</span> Extra notes</h2>
+          <textarea class="form-control" id="notes" name="notes" rows="3" maxlength="300" placeholder="Anything we should know? (optional)"></textarea>
+
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+            <label class="form-check-label" for="terms">I agree to the hall's booking terms *</label>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <button type="submit" class="btn btn-main"><i class="bi bi-check2-circle"></i> Confirm booking</button>
+            <button type="reset" class="btn btn-outline-main">Clear form</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Price summary (static example) -->
+      <div class="col-lg-4">
+        <aside class="booking-panel booking-summary">
+          <h2 class="h5 mb-3">Booking summary</h2>
+          <div class="summary-row"><span>Hall rental</span><strong>3,000 LYD</strong></div>
+          <div class="summary-row"><span>Time slot</span><strong>Evening</strong></div>
+          <div class="summary-row"><span>Guests</span><strong>300</strong></div>
+          <div class="summary-row border-0"><span>Services</span><a href="services.html">Add services</a></div>
+          <p class="small text-muted mt-3 mb-0"><i class="bi bi-info-circle"></i> Example values. A 30% deposit is paid after the booking is confirmed.</p>
+        </aside>
+      </div>
     </div>
   </main>
 
